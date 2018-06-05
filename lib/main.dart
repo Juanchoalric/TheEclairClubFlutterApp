@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'theme.dart';
 import 'detail_recipe.dart';
 import 'drawer_menu.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_database/firebase_database.dart';
 
 void main() => runApp(new MyApp());
 
@@ -84,19 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       new Row(
                         children: <Widget>[
                           new Padding(
-                            padding: const EdgeInsets.all(15.0),
-                            child: new Container(
-                              padding: const EdgeInsets.all(10.0),
-                              decoration: new BoxDecoration(
-                                color: primaryDarkColor,
-                                borderRadius: new BorderRadius.all(
-                                    const Radius.circular(15.0)),
-                              ),
-                              child: new Icon(
-                                Icons.fastfood,
-                                color: Colors.white,
-                              ),
-                            ),
+                            padding : new EdgeInsets.only(left: 16.0)
                           ),
                           new Expanded(
                             child: new Column(
@@ -126,7 +112,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               colors: [
                                 Colors.white,
                                 Colors.white,
-                                textLightColor,
+                                primaryColor,
+                                primaryColor,
                               ],
                               begin: Alignment.topCenter,
                               end: Alignment.bottomCenter,

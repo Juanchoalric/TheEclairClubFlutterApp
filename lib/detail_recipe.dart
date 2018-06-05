@@ -64,7 +64,9 @@ class _DetailRecipePageState extends State<DetailRecipePage>
               fontFamily: "Shadows Into Light", color: Colors.white),
         ),
         bottom: new TabBar(
+          indicatorColor: secondaryColor,
           controller: controller,
+          
           tabs: <Widget>[
             new Tab(
               text: "Description",
@@ -136,21 +138,21 @@ class DescriptionRecipe extends StatelessWidget {
                         
         ),
         new Container(child: new Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(16.0),
           child: new Text(introductionText, style: new TextStyle(color: textColor, fontFamily: "Roboto Regular", fontSize: 18.0),),
         )),
         new Container(
           child: new Image.asset(secondImage, fit: BoxFit.cover,width: double.infinity,height: 300.0),
         ),
         new Container(child: new Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(16.0),
           child: new Text(secondText, style: new TextStyle(color: textColor, fontFamily: "Roboto Regular", fontSize: 18.0),),
         )),
         new Container(
           child: new Image.asset(thirdImage, fit: BoxFit.cover,width: double.infinity,height: 300.0),
         ),
         new Container(child: new Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(16.0),
           child: new Text(endingText, style: new TextStyle(color: textColor, fontFamily: "Roboto Regular", fontSize: 18.0),),
         )),
         new Container(

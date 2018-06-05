@@ -48,6 +48,10 @@ flutter:
      - assets/sides.jpeg
      - assets/slowcooker.jpg
      - assets/onepotmeals.jpg
+     - assets/jaci.jpg
+     - assets/aboutme1.jpg
+     - assets/aboutme2.jpeg
+     - assets/aboutme3.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
 

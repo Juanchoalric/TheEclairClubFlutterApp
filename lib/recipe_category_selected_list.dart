@@ -66,19 +66,7 @@ class _CategoryRecipeListState extends State<CategoryRecipeList> {
                           new Row(
                             children: <Widget>[
                               new Padding(
-                                padding: const EdgeInsets.all(15.0),
-                                child: new Container(
-                                  padding: const EdgeInsets.all(10.0),
-                                  decoration: new BoxDecoration(
-                                    color: primaryDarkColor,
-                                    borderRadius: new BorderRadius.all(
-                                        const Radius.circular(15.0)),
-                                  ),
-                                  child: new Icon(
-                                    Icons.fastfood,
-                                    color: Colors.white,
-                                  ),
-                                ),
+                                padding: new EdgeInsets.only(left: 16.0),
                               ),
                               new Expanded(
                                 child: new Column(
@@ -108,7 +96,8 @@ class _CategoryRecipeListState extends State<CategoryRecipeList> {
                                       colors: [
                                         Colors.white,
                                         Colors.white,
-                                        textLightColor,
+                                        primaryColor,
+                                        primaryColor,
                                       ],
                                       begin: Alignment.topCenter,
                                       end: Alignment.bottomCenter,
@@ -140,7 +129,7 @@ class _CategoryRecipeListState extends State<CategoryRecipeList> {
   }
 }
 
-final List<Recipe> recipesList = [
+List<Recipe> recipesList = [
   new Recipe(
       key: "1",
       firstImage: "assets/postre1.jpg",
