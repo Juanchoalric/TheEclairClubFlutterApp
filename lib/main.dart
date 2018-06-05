@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'theme.dart';
 import 'detail_recipe.dart';
 import 'drawer_menu.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 void main() => runApp(new MyApp());
 
@@ -42,9 +44,9 @@ class _MyHomePageState extends State<MyHomePage> {
               fontFamily: "Shadows Into Light", color: Colors.white),
         )),
     body: new ListView.builder(
-          itemCount: recipesList.recipes.length,
+          itemCount: recipesList.length,
           itemBuilder: (context, i) {
-            final recipe = recipesList.recipes[i];
+            final recipe = recipesList[i];
             return new FlatButton(
               padding: new EdgeInsets.all(0.0),
               onPressed: () {
@@ -155,9 +157,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-final recipesList = new Recipes(
-  recipes: [
-    new Recipe(
+final List<Recipe> recipesList = [
+  new Recipe(
       key: "1",
       firstImage: "assets/postre1.jpg",
       secondImage: "assets/postre2.jpg",
@@ -175,6 +176,7 @@ final recipesList = new Recipes(
       stepsToPrepare:
           "Put the cake inside the oven|Then put it inside the fridge|Microwave for 50 seconds",
       likes: 60,
+      category: "Desserts"
     ),
     new Recipe(
       key: "2",
@@ -296,8 +298,7 @@ final recipesList = new Recipes(
       likes: 60,
       category: "Slow Cooker"
     ),
-  ],
-);
+];
 
 class Recipe {
   final String key;
@@ -332,13 +333,4 @@ class Recipe {
     this.category,
   });
 
-}
-
-class Recipes {
-  final List<Recipe> recipes;
-
-  Recipes({
-    this.recipes,
-  });
-  
 }
