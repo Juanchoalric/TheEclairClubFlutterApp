@@ -19,7 +19,8 @@ class CategoryRecipes extends StatelessWidget {
       body: new GridView.count(
           crossAxisCount: 2,
           children: new List.generate(categoryList.categories.length, (index) {
-            return new FlatButton(
+            return new MaterialButton(
+              padding: EdgeInsets.zero,
               onPressed: () {
                 var route = new MaterialPageRoute(
                   builder: (BuildContext context) => new CategoryRecipeList(
@@ -29,19 +30,20 @@ class CategoryRecipes extends StatelessWidget {
                 Navigator.of(context).push(route);
               },
               child: new Container(
-                child: new Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisSize: MainAxisSize.min,
-                  verticalDirection: VerticalDirection.down,
-                  children: <Widget>[
-                    new Image(
-                        image: new AssetImage(
-                            categoryList.categories[index].image)),
-                    new Center(
-                      child: new Text(categoryList.categories[index].text),
-                    )
-                  ],
-                ),
+                child: new Stack(
+                    fit: StackFit.expand,
+                    children: <Widget>[
+                      new Image(
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                        height: 150.0,
+                          image: new AssetImage(
+                              categoryList.categories[index].image)),
+                      new Center(
+                        child: new Text(categoryList.categories[index].text, style: new TextStyle(color: Colors.white, fontSize: 20.0, fontFamily: "Roboto Regular", fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
+                      )
+                    ],
+                  ),
               ),
             );
           })),

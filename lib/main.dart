@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'theme.dart';
 import 'detail_recipe.dart';
 import 'drawer_menu.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() => runApp(new MyApp());
 
@@ -37,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
     appBar: new AppBar(
         backgroundColor: primaryColor,
         title: new Text(
-          "Home Sweet Home",
+          "fede rico",
           style: new TextStyle(
               fontFamily: "Shadows Into Light", color: Colors.white),
         )),
@@ -147,11 +148,11 @@ class _MyHomePageState extends State<MyHomePage> {
 final List<Recipe> recipesList = [
   new Recipe(
       key: "1",
-      firstImage: "assets/postre1.jpg",
+      firstImage: "assets/food1.jpg",
       secondImage: "assets/postre2.jpg",
       thirdImage: "assets/postre3.jpg",
       fourthImage: "assets/postre1.jpg",
-      title: "Li Diccone",
+      title: "Mokati lof",
       subTitle: "The best cake ever to exist",
       introductionText:
           "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur",
@@ -183,15 +184,15 @@ final List<Recipe> recipesList = [
       stepsToPrepare:
           "Put the cake inside the oven|Then put it inside the fridge|Microwave for 50 seconds",
       likes: 60,
-      category: "Cakes and Cupcakes"
+      category: "Cakes & Cupcakes"
     ),
     new Recipe(
        key: "3",
-      firstImage: "assets/postre1.jpg",
+      firstImage: "assets/postre3.jpg",
       secondImage: "assets/postre1.jpg",
       thirdImage: "assets/postre1.jpg",
       fourthImage: "assets/postre1.jpg",
-      title: "Li Diccone",
+      title: "Kolatrof",
       subTitle: "The best cake ever to exist",
       introductionText:
           "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur",
@@ -207,11 +208,11 @@ final List<Recipe> recipesList = [
     ),
     new Recipe(
        key: "4",
-      firstImage: "assets/postre1.jpg",
+      firstImage: "assets/postre2.jpg",
       secondImage: "assets/postre1.jpg",
       thirdImage: "assets/postre1.jpg",
       fourthImage: "assets/postre1.jpg",
-      title: "Li Diccone",
+      title: "Jayolib",
       subTitle: "The best cake ever to exist",
       introductionText:
           "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur",
@@ -227,11 +228,11 @@ final List<Recipe> recipesList = [
     ),
     new Recipe(
        key: "5",
-      firstImage: "assets/postre1.jpg",
+      firstImage: "assets/food4.jpg",
       secondImage: "assets/postre1.jpg",
       thirdImage: "assets/postre1.jpg",
       fourthImage: "assets/postre1.jpg",
-      title: "Li Diccone",
+      title: "Bo Nanina",
       subTitle: "The best cake ever to exist",
       introductionText:
           "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur",
@@ -243,15 +244,15 @@ final List<Recipe> recipesList = [
       stepsToPrepare:
           "Put the cake inside the oven|Then put it inside the fridge|Microwave for 50 seconds",
       likes: 60,
-      category: "Slides"
+      category: "Sides"
     ),
     new Recipe(
        key: "6",
-      firstImage: "assets/postre1.jpg",
+      firstImage: "assets/food2.jpg",
       secondImage: "assets/postre1.jpg",
       thirdImage: "assets/postre1.jpg",
       fourthImage: "assets/postre1.jpg",
-      title: "Li Diccone",
+      title: "Relamona",
       subTitle: "The best cake ever to exist",
       introductionText:
           "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur",
@@ -267,11 +268,11 @@ final List<Recipe> recipesList = [
     ),
     new Recipe(
        key: "7",
-      firstImage: "assets/postre1.jpg",
+      firstImage: "assets/food1.jpg",
       secondImage: "assets/postre1.jpg",
       thirdImage: "assets/postre1.jpg",
       fourthImage: "assets/postre1.jpg",
-      title: "Li Diccone",
+      title: "Ginini Balof",
       subTitle: "The best cake ever to exist",
       introductionText:
           "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur",

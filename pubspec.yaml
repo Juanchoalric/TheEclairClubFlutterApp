@@ -8,6 +8,9 @@ dependencies:
   firebase_database: ^1.0.1
   firebase_core: any
   firebase_auth: ^0.5.11
+  url_launcher: "^3.0.2"
+  cloud_firestore: "^0.7.3"
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -50,8 +53,15 @@ flutter:
      - assets/onepotmeals.jpg
      - assets/jaci.jpg
      - assets/aboutme1.jpg
-     - assets/aboutme2.jpeg
+     - assets/aboutme2.jpg
      - assets/aboutme3.jpg
+     - assets/facebook.png
+     - assets/twitter.png
+     - assets/instagram.png
+     - assets/food1.jpg
+     - assets/food2.jpg
+     - assets/food4.jpg
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
 
@@ -97,3 +107,7 @@ flutter:
         - family: Roboto Regular
           fonts:
             - asset: fonts/Roboto-Regular.ttf
+
+        - family: Icomoon
+          fonts:
+            - asset: fonts/icomoon.ttf

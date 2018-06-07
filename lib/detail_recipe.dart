@@ -129,38 +129,35 @@ class DescriptionRecipe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    return new SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
+    return ListView(
+      children: <Widget>[
         new Container(
-          child: new Image.asset(firstImage, fit: BoxFit.cover,width: double.infinity,height: 300.0),
-                        
+    child: new Image.asset(firstImage, fit: BoxFit.cover,width: double.infinity,height: 300.0),
+                  
         ),
         new Container(child: new Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: new Text(introductionText, style: new TextStyle(color: textColor, fontFamily: "Roboto Regular", fontSize: 18.0),),
+    padding: const EdgeInsets.all(16.0),
+    child: new Text(introductionText, style: new TextStyle(color: textColor, fontFamily: "Roboto Regular", fontSize: 18.0),),
         )),
         new Container(
-          child: new Image.asset(secondImage, fit: BoxFit.cover,width: double.infinity,height: 300.0),
+    child: new Image.asset(secondImage, fit: BoxFit.cover,width: double.infinity,height: 300.0),
         ),
         new Container(child: new Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: new Text(secondText, style: new TextStyle(color: textColor, fontFamily: "Roboto Regular", fontSize: 18.0),),
+    padding: const EdgeInsets.all(16.0),
+    child: new Text(secondText, style: new TextStyle(color: textColor, fontFamily: "Roboto Regular", fontSize: 18.0),),
         )),
         new Container(
-          child: new Image.asset(thirdImage, fit: BoxFit.cover,width: double.infinity,height: 300.0),
+    child: new Image.asset(thirdImage, fit: BoxFit.cover,width: double.infinity,height: 300.0),
         ),
         new Container(child: new Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: new Text(endingText, style: new TextStyle(color: textColor, fontFamily: "Roboto Regular", fontSize: 18.0),),
+    padding: const EdgeInsets.all(16.0),
+    child: new Text(endingText, style: new TextStyle(color: textColor, fontFamily: "Roboto Regular", fontSize: 18.0),),
         )),
         new Container(
-          child: new Image.asset(firstImage, fit: BoxFit.cover,width: double.infinity,height: 300.0),
+    child: new Image.asset(firstImage, fit: BoxFit.cover,width: double.infinity,height: 300.0),
         ),
       ],
-      ),
-    );
+      );
   }
 }
 
@@ -187,8 +184,22 @@ class IngredientsRecipe extends StatelessWidget {
     for (int i = 0; i < count; i++) {
       strings.add(new Padding(
         padding: new EdgeInsets.all(16.0),
-        child: new Text("${ingredientsRecipe.split("|")[i]}"),
-      ));
+        child: new Row(
+          crossAxisAlignment: CrossAxisAlignment.baseline,
+          textBaseline: TextBaseline.alphabetic,
+          children: <Widget>[
+            new CircleAvatar(
+      backgroundColor: secondaryColor,
+      child: new Icon(Icons.check, color: Colors.white,)),
+            new Padding(
+              padding: const EdgeInsets.only(left: 8.0, top: 0.0, right: 0.0, bottom: 0.0),
+              child: new Text(
+                "${ingredientsRecipe.split("|")[i]}", style: new TextStyle(color: textColor, fontSize: 20.0),),
+            ),
+          ],
+        )
+        )
+      );
     }
     return strings;
   }
