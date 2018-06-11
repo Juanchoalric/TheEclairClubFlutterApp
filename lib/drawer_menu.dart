@@ -20,11 +20,11 @@ class DrawerMenu extends StatelessWidget {
             currentAccountPicture: new GestureDetector(
               child: new CircleAvatar(
                 backgroundColor: Colors.white,
-                child: new Text("J", style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0, color: primaryDarkColor),),
+                child: new Text("E", style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0, color: primaryDarkColor),),
               ),
             ),
-            accountName: new Text("Juanchoalric"),
-            accountEmail: new Text("Juanchoalric94@gmail.com"),
+            accountName: new Text("User"),
+            accountEmail: new Text("The Eclair club"),
             decoration: new BoxDecoration(
               image: new DecorationImage(
                 fit: BoxFit.cover,
