@@ -15,10 +15,15 @@ class CategoryRecipeList extends StatefulWidget {
   _CategoryRecipeListState createState() => new _CategoryRecipeListState();
 }
 
+
 class _CategoryRecipeListState extends State<CategoryRecipeList> {
+  
+  
 
   @override
   Widget build(BuildContext context) {
+
+
     return new Scaffold(
       appBar: new AppBar(
           backgroundColor: primaryColor,
@@ -41,6 +46,8 @@ class _CategoryRecipeListState extends State<CategoryRecipeList> {
     );
   }
 }
+
+
 
 class ListViewCategoryRecipeSelected extends StatelessWidget {
   final String textCategory;

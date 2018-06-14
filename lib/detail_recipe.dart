@@ -41,6 +41,34 @@ class _DetailRecipePageState extends State<DetailRecipePage>
     with SingleTickerProviderStateMixin {
   TabController controller;
 
+  //final _scaffoldKey = new GlobalKey<ScaffoldState>();
+
+//   void persistentBottomSheet(){
+// _scaffoldKey.currentState.showBottomSheet((context){
+// return new Container(
+// color: Colors.white,
+// height: 450.0,
+// child: new Center(
+// child: new Text("Hey! guys , this is a persistent bottom sheet", style: new TextStyle(color: Colors.white),),
+// ),
+// );
+// });
+// }
+void modalBottomSheet(){
+showModalBottomSheet(
+context: context,
+builder: (builder){
+return new Container(
+  height: 450.0,
+color: primaryColor,
+child: new Center(
+child: new Text("Hey guys !! it is a modal bottom sheet"),
+),
+);
+}
+);
+}
+
   @override
   void initState() {
     super.initState();
@@ -56,6 +84,7 @@ class _DetailRecipePageState extends State<DetailRecipePage>
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      //key: _scaffoldKey,
       appBar: new AppBar(
         backgroundColor: primaryColor,
         title: new Text(
@@ -84,6 +113,7 @@ class _DetailRecipePageState extends State<DetailRecipePage>
         controller: controller,
         children: <Widget>[
           new DescriptionRecipe(
+            persistentBottomSheet: modalBottomSheet,
             firstImage: widget.firstImage,
             secondImage: widget.secondImage,
             thirdImage: widget.thirdImage,
@@ -114,6 +144,7 @@ class DescriptionRecipe extends StatelessWidget {
   final String secondText;
   final String endingText;
   final String category;
+  final Function persistentBottomSheet;
 
   DescriptionRecipe({
     this.firstImage,
@@ -124,6 +155,7 @@ class DescriptionRecipe extends StatelessWidget {
     this.secondText,
     this.endingText,
     this.category,
+    this.persistentBottomSheet
   });
 
   @override
@@ -134,6 +166,17 @@ class DescriptionRecipe extends StatelessWidget {
         new Container(
     child: new Image.network(firstImage, fit: BoxFit.cover,width: double.infinity,height: 300.0),
                   
+        ),
+        Container(
+          color: primaryColor,
+                  child: new ListTile(
+            leading: new Icon(Icons.comment, color: Colors.white,),
+            title: FlatButton(
+              
+              onPressed: persistentBottomSheet,
+              child: Text("Click here and leave me a comments", style: new TextStyle(color: Colors.white, fontFamily: "Handlee", fontSize: 15.0),textAlign: TextAlign.left,),
+            ),
+          ),
         ),
         new Container(child: new Padding(
     padding: const EdgeInsets.all(16.0),
