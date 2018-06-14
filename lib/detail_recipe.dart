@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:the_eclair_club/theme.dart';
+import 'comment_model.dart';
 
 class DetailRecipePage extends StatefulWidget {
   final String firstImage;
@@ -54,16 +55,97 @@ class _DetailRecipePageState extends State<DetailRecipePage>
 // );
 // });
 // }
+
+
+
 void modalBottomSheet(){
+  final TextEditingController _textEditController = new TextEditingController();
+  String change = '';
+  String e;
+
+void _submission( String e) {
+  print(_textEditController.text);
+  _textEditController.clear();
+}
+
 showModalBottomSheet(
 context: context,
 builder: (builder){
-return new Container(
-  height: 450.0,
-color: primaryColor,
-child: new Center(
-child: new Text("Hey guys !! it is a modal bottom sheet"),
-),
+return Flex(
+    children: <Widget>[
+      new ListView.builder(
+        itemCount: data.length,
+  
+        itemBuilder: (BuildContext context, int index) {
+  
+          return new Column(
+  
+            children: <Widget>[
+  
+              new Divider(
+  
+                height: 10.0,
+  
+              ),
+  
+              new ListTile(
+  
+                leading: new CircleAvatar(
+  
+                  backgroundColor: Colors.grey,
+  
+                ),
+  
+                title: new Row(
+  
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  
+                  children: <Widget>[
+  
+                    new Text(data[index].username,
+  
+                        style: new TextStyle(fontWeight: FontWeight.bold)),
+  
+                    new Text(data[index].time,
+  
+                        style: new TextStyle(color: Colors.grey, fontSize: 14.0))
+  
+                  ],
+  
+                ),
+  
+                subtitle: new Container(
+  
+                    padding: const EdgeInsets.only(top: 5.0),
+  
+                    child: new Text(data[index].message,style: new TextStyle(color: Colors.grey, fontSize: 15.0) ), ),
+  
+              )
+  
+            ],
+  
+          );
+  
+        },
+  
+      ),
+      new Container(
+        height: 100.0,
+        child: new TextField(
+          enabled: true,
+          maxLength: 250,
+          maxLengthEnforced: true,
+          obscureText: false,
+          controller: _textEditController,
+          onChanged: (e) {
+            setState(() {
+                      change = e;   
+                        });
+          },
+          onSubmitted: _submission,
+        ),
+      )
+    ], 
 );
 }
 );
